@@ -3,9 +3,6 @@ const app = express()
 
 
 
-app.get('/ola', (req,res) => {
-    res.send('ola mundo')
-})
 
 
 
