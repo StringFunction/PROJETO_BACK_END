@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize");
+const crip = require("bcrypt")
 const conn =  require("../config/database")
 
 
@@ -26,7 +27,16 @@ const User =  conn.define('User', {
       allowNull: false,
     },
   }, {
-    timestamps: true
+    hooks : {
+      beforeSave : async (user) =>{
+        if (user.changed("password")) {
+          const count =  10
+          user.password = await crip.hash(user.password, count)
+          
+        }
+
+      }
+    }
         })
 
 
