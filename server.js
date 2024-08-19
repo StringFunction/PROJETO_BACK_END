@@ -2,8 +2,9 @@ require('dotenv').config()
 
 const http = require('http')
 const app = require('./src/app')
-require('./src/routes/endpointUsuario')
+require('./src/routes/EndpointUsuario')
 require('./src/routes/EndpointCategoria')
+require('./src/routes/EndopointProdutos')
 require("./src/models/ModelConfig")
 const port = process.env.PORTA || 10000
 require('./src/config/database')

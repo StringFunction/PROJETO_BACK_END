@@ -9,7 +9,7 @@ const Categorias = conn.define("Categorias", {
         autoIncrement: true,
         allowNull: false
       },
-    nome : {
+    name : {
         type : DataTypes.STRING,
         allowNull: false
     },

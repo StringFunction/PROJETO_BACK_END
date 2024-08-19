@@ -46,6 +46,7 @@ app.put("/v1/category/:id", async(req, res) =>{
         
     }
 })
+//DELETANDO CATEGORIO DE ACOROD COM ID 
 app.delete("/v1/category/:id", async(req, res) =>{
     const respota_delete = await Categoria.findByPk(req.params.id)
     if (respota_delete){

@@ -2,11 +2,22 @@ const { json, where } = require('sequelize')
 const app = require('../app')
 const User = require("../models/ModelUsuario")
 //CADASTRA NOVO USUARIO
-app.post("/v1/user",(req,res) =>{
-    User.create(req.body).then((result) =>{
+app.post("/v1/user", async(req,res) =>{
+    const email = await User.findOne({where : {
+        email : req.body.email
+    }})
+    if (!email){
+        User.create(req.body).then((result) =>{
         res.status(201).send(result)
-    }).catch(erro => console.log(erro)
-    )
+        }).catch(erro => res.status(400).send("Dados incorretos")
+        )
+     
+    }else{
+        res.status(404).send("Email ja cadastrado")
+    }
+
+    // const email =  await
+   
 })
 //BUSCA UM USUARIO PELO ID
 app.get("/v1/user/:id", async (req, res)=>{
