@@ -41,7 +41,7 @@ const User =  conn.define('User', {
 
 
   conn.sync().then(()=>{
-    console.log("Sicronizacao realizada");
+    console.log("Sicronizacao  model usuario realizada");
     
   }).catch((erro) =>{
     console.log(erro);
